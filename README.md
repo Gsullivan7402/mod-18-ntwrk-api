@@ -29,13 +29,6 @@ List Users
     URL: http://localhost:3001/api/users
     Send: Click the "Send" button.
 
-Get a Single User
-
-    Location: Insomnia
-    Action: Duplicate "List Users" request, rename to "Get User", and adjust the URL.
-    URL: http://localhost:3001/api/users/<userId> (Replace <userId> with actual ID)
-    Send: Click the "Send" button.
-
 Update a User
 
     Location: Insomnia
