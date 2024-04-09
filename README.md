@@ -29,21 +29,6 @@ List Users
     URL: http://localhost:3001/api/users
     Send: Click the "Send" button.
 
-Update a User
-
-    Location: Insomnia
-    Action: Duplicate "Create User", rename to "Update User", change method to PUT, and adjust the URL and body.
-    URL: http://localhost:3001/api/users/<userId>
-    Body:
-
-    json
-
-    {
-      "username": "JaneDoeUpdated"
-    }
-
-    Send: Click the "Send" button.
-
 Add a Pal
 
     Location: Insomnia
