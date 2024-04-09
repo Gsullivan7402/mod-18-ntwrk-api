@@ -15,7 +15,7 @@ const UserSchema = new Schema({
     },
     comments: [{
         type: Schema.Types.ObjectId,
-        ref: 'Comment' // Ensure this refers to the updated Thought/Comment model as needed
+        ref: 'Comment' 
     }],
     pals: [{
         type: Schema.Types.ObjectId,
