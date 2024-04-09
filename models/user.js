@@ -13,7 +13,7 @@ const UserSchema = new Schema({
         required: [true, 'Email is required'],
         match: [/.+@.+\..+/, 'Please fill a valid email address']
     },
-    thoughts: [{
+    comments: [{
         type: Schema.Types.ObjectId,
         ref: 'Comment' // Ensure this refers to the updated Thought/Comment model as needed
     }],

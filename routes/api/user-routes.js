@@ -6,8 +6,8 @@ const {
     createUser,
     updateUser,
     deleteUser,
-    addPal, // Changed from addFriend to addPal
-    deletePal // Changed from deleteFriend to deletePal
+    addPal, // 
+    deletePal 
 } = require('../../controllers/user-controller');
 
 // Set up GET all and POST at /api/users
@@ -21,9 +21,8 @@ router.route('/:id')
     .put(updateUser)
     .delete(deleteUser);
 
-// Changed the path to match 'pals' terminology
 router.route('/:userId/pals/:palId')
-    .post(addPal) // Changed to addPal
-    .delete(deletePal); // Changed to deletePal
+    .post(addPal) 
+    .delete(deletePal); 
 
 module.exports = router;
