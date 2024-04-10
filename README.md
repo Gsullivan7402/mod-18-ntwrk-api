@@ -58,6 +58,8 @@ Add a Pal
     URL: http://localhost:3001/api/users/<userId>/pals/<palId>
     Send: Click the "Send" button.
 
+
+**unable to make comments work**
 Create a Comment
 
     Location: Insomnia
@@ -133,7 +135,7 @@ Remove a Pal
     Action: Duplicate "Add Pal", rename to "Remove Pal", change method to DELETE, and adjust the URL.
     URL: http://localhost:3001/api/users/<userId>/pals/<palId>
     Send: Click the "Send" button.
-
+**unable to get delete a user working**
 Delete a User
 
     Location: Insomnia
