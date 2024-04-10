@@ -1,6 +1,7 @@
 const { User, Comment } = require('../models');
 
 const commentController = {
+
     //get all comments
     getAllComment(req, res) {
         Comment.find({})
@@ -44,7 +45,7 @@ const commentController = {
             .then(({ _id }) => {
                 return User.findOneAndUpdate(
                     { _id: body.userId },
-                    { $push: { comments: _id } },
+                    { $push: { comments: _id } }, // Changed from thoughts to comments
                     { new: true }
                 );
             })
@@ -80,14 +81,14 @@ const commentController = {
                     return;
                 }
                 return User.findOneAndUpdate(
-                    { _id: params.userId },
-                    { $pull: { comments: params.id } },
+                    { _id: dbCommentData.userId }, // Assuming each comment stores userId for back-reference
+                    { $pull: { comments: params.id } }, // Changed from thoughts to comments
                     { new: true }
-                );
+                )
             })
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'No user found with that id!' });
+                    res.status(404).json({ message: 'No user found with this id!' });
                     return;
                 }
                 res.json(dbUserData);
@@ -98,7 +99,7 @@ const commentController = {
     //create reaction
     createReaction({ params, body }, res) {
         Comment.findOneAndUpdate(
-            { _id: params.commentId },
+            { _id: params.commentId }, // Changed from thoughtId to commentId
             { $push: { reactions: body } },
             { new: true, runValidators: true })
             .populate({ path: 'reactions', select: '-__v' })
@@ -116,13 +117,13 @@ const commentController = {
     //delete reaction
     deleteReaction({ params }, res) {
         Comment.findOneAndUpdate(
-            { _id: params.commentId },
+            { _id: params.commentId }, // Changed from thoughtId to commentId
             { $pull: { reactions: { reactionId: params.reactionId } } },
             { new: true }
         )
             .then(dbCommentData => {
                 if (!dbCommentData) {
-                    res.status(404).json({ message: 'Nope!' });
+                    res.status(404).json({ message: 'No comment found with that ID.' });
                     return;
                 }
                 res.json(dbCommentData);

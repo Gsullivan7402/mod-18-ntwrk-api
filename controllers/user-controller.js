@@ -59,7 +59,7 @@ const userController = {
 
     //delete user and their associated comments by id
     deleteUser({ params }, res) {
-        Thought.deleteMany({ userId: params.id })
+        Comment.deleteMany({ userId: params.id })
             .then(() => User.findOneAndDelete({ _id: params.id }))
             .then(dbUserData => {
                 if (!dbUserData) {
